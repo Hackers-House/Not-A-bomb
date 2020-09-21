@@ -70,11 +70,11 @@ function cleanupBomb() {
 }
 
 function submitGuess(color) {
-  const port = chrome.runtime.connect({name: "defusalPort"});
-  port.postMessage({type: "guess", color: color});
-  port.onMessage.addListener(function(response) {
-    if(response.defused) bombDefused()
-    else if(!response.defused) bombTriggered()
+  const port = chrome.runtime.connect({ name: "defusalPort" });
+  port.postMessage({ type: "guess", color: color });
+  port.onMessage.addListener(function (response) {
+    if (response.defused) bombDefused()
+    else if (!response.defused) bombTriggered()
   });
 }
 
